@@ -55,11 +55,16 @@
     </div>
     <br/>
     <div class="row">
-      <div class="col-sm-4"><button type="button" class="btn btn-success">New</button></div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#saveContactModelPopup">
+          New
+        </button>
+      </div>
     </div>
     <div class="row">
       <app-contact-list></app-contact-list>
     </div>
-  
+    <app-save-contact></app-save-contact>
+    <app-delete-contact></app-delete-contact>
 </main>
 <router-outlet />
