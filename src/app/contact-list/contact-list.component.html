@@ -10,28 +10,16 @@
       </tr>
     </thead>
     <tbody>
+
+    <ng-container *ngFor="let contact of contacts">
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>mdo</td>
+        <th scope="row">{{contact.id}}</th>
+        <td>{{contact.firstName}}</td>
+        <td>{{contact.lastName}}</td>
+        <td>{{contact.emailId}}</td>
         <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveContactModelPopup">Edit</button></td>
         <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModelPopup">Delete</button></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>fat</td>
-        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveContactModelPopup">Edit</button></td>
-        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModelPopup">Delete</button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>twitter</td>
-        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveContactModelPopup">Edit</button></td>
-        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModelPopup">Delete</button></td>
-      </tr>
+    </ng-container>      
     </tbody>
   </table>
