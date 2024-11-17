@@ -1,3 +1,13 @@
+<div class="alert {{alertType}}" role="alert" *ngIf = "isAlert">
+  {{alertMessage}}
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" (click)="saveContact(0)" data-bs-target="#saveContactModelPopup">
+      New
+    </button>
+  </div>
+</div>
 <table class="table">
     <thead>
       <tr>
@@ -17,9 +27,20 @@
         <td>{{contact.firstName}}</td>
         <td>{{contact.lastName}}</td>
         <td>{{contact.emailId}}</td>
-        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveContactModelPopup">Edit</button></td>
-        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteContactModelPopup">Delete</button></td>
+        <td>
+          <button type="button" class="btn btn-primary" 
+          data-bs-toggle="modal" data-bs-target="#saveContactModelPopup"
+          (click)="saveContact(contact.id)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" 
+          data-bs-toggle="modal" data-bs-target="#deleteContactModelPopup" 
+          (click)="setCurrentId(contact.id)">Delete</button>
+        </td>
       </tr>
     </ng-container>      
     </tbody>
   </table>
+
+  <app-save-contact [id]="currentId" (saveEvent)="saveMessage($event)"></app-save-contact>
+  <app-delete-contact [id]="currentId" (deleteEvent)="deleteMessage($event)"></app-delete-contact>

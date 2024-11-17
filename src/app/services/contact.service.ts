@@ -31,7 +31,7 @@ export class ContactService {
 
   updateContact(id: number, contact: Contact) : Observable<boolean> {
     const requestUrl = `${this.baseUrl}/contact/update/${id}`;
-    return this.httpClient.post<boolean>(requestUrl, contact);
+    return this.httpClient.put<boolean>(requestUrl, contact);
   }
 
   deleteContact(id: number) : Observable<boolean> {
