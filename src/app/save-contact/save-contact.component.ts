@@ -1,5 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import { AfterViewInit, Component, EventEmitter, Input, input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactService } from '../services/contact.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -17,9 +17,9 @@ export class SaveContactComponent implements OnInit {
     lastName: new FormControl(''),
     emailId: new FormControl('')    
   });
-  submitted = false;
   @Input() id : number = 0;
   @Output() saveEvent = new EventEmitter<boolean>();
+  submitted = false;
   title: string = 'Save';
   contact?: Contact;
   isData : boolean = false;

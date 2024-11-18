@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnInit, SimpleChanges, TemplateRef, ViewChild, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ContactService } from '../services/contact.service';
 import { Contact } from '../models/contact';
 import { NgFor, NgIf } from '@angular/common';
 import { SaveContactComponent } from "../save-contact/save-contact.component";
 import { DeleteContactComponent } from "../delete-contact/delete-contact.component";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-contact-list',
@@ -14,7 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ContactListComponent implements OnInit, AfterViewInit {
 
-  constructor(private contactService: ContactService, private ref: ElementRef, private modalService : NgbModal){  }  
+  constructor(private contactService: ContactService, private ref: ElementRef){  }  
 
   @ViewChild(SaveContactComponent) saveComponent?: SaveContactComponent;
   

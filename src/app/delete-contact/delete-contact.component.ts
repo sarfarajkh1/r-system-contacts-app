@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ContactService } from '../services/contact.service';
-import { error } from 'console';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
