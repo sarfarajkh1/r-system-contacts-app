@@ -5,9 +5,13 @@
   <div class="col-sm-4">
     <button type="button" class="btn btn-success" data-bs-toggle="modal" (click)="saveContact(0)" data-bs-target="#saveContactModelPopup">
       New
-    </button>
+    </button>    
   </div>
-</div>
+  <div class="col-sm-4">   
+  </div>
+  <div class="col-sm-4">
+    <input type="text"  class="form-control" placeholder="Search contact" (input)="filterContact($event)">
+  </div>
 <table class="table">
     <thead>
       <tr>
@@ -21,7 +25,7 @@
     </thead>
     <tbody>
 
-    <ng-container *ngFor="let contact of contacts">
+    <ng-container *ngFor="let contact of filterdContacts">
       <tr>
         <th scope="row">{{contact.id}}</th>
         <td>{{contact.firstName}}</td>
