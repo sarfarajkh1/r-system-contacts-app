@@ -37,3 +37,15 @@ h1 {
   .content p {
     margin-top: 1.5rem;
   }
+
+  .logo-row {
+    display: flex;
+  }
+  .logo {
+    flex: 1;
+  }
+  .text {
+    width: 96%;
+  }
+
+ 
