@@ -18,6 +18,7 @@ export class ContactListComponent implements OnInit, AfterViewInit {
   @ViewChild(SaveContactComponent) saveComponent?: SaveContactComponent;
   
   contacts: Contact[] | undefined;
+  filterdContacts: Contact[] | undefined;
   currentId: number = 0;
   deleteModel?: HTMLElement;
   saveModel?: HTMLElement;
@@ -39,6 +40,7 @@ export class ContactListComponent implements OnInit, AfterViewInit {
     .subscribe({
       next:(response: Contact[]) => {
         this.contacts = response;
+        this.filterdContacts = response;
       }
     }); 
   }
@@ -91,5 +93,15 @@ export class ContactListComponent implements OnInit, AfterViewInit {
     this.alertMessage = isSuccess ? 'Contact successfully Saved!!' :'There was an issue saving contact!!';
     this.alertType = isSuccess ? 'alert-primary' : 'alert-danger';
     this.isAlert = true;
+  }
+  filterContact($event: Event){
+    const input = $event.target as HTMLInputElement;
+    this.filterdContacts = this.contacts?.filter(contact => {
+      if(contact.firstName.toLocaleLowerCase().includes(input.value.toLocaleLowerCase()) ||
+         contact.lastName.toLocaleLowerCase().includes(input.value.toLocaleLowerCase())
+        )
+          return contact;
+      return null;        
+    });
   }
 }
